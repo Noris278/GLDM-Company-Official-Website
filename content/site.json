@@ -1,0 +1,202 @@
+{
+  "hero": {
+    "badge": "专业负离子发生器制造商",
+    "title": {
+      "prefix": "引领",
+      "highlight": "负离子技术",
+      "suffix": "创新未来"
+    },
+    "descriptions": [
+      "苏州歌林蒂姆电子科技有限公司成立于2013年10月，专业生产负离子发生器、等离子发生器和臭氧发生器，从事该行业已近10余年的历史。",
+      "拥有丰富的制造经验，技术人员的班底由行业知名企业技术人员组建，为国内众多知名企业、家电品牌提供高品质的负离子解决方案。"
+    ],
+    "features": [
+      "10年专业制造经验",
+      "年产能1500万台",
+      "国际认证齐全",
+      "品质保证"
+    ]
+  },
+  "heroStats": [
+    {
+      "label": "年行业经验",
+      "value": "10+"
+    },
+    {
+      "label": "年产能（台）",
+      "value": "1500万"
+    },
+    {
+      "label": "专业员工",
+      "value": "80+"
+    }
+  ],
+  "productApplications": [
+    {
+      "name": "电吹风",
+      "icon": "Wind",
+      "description": "为电吹风提供负离子功能，减少静电，让头发更柔顺",
+      "image": "/images/products/spec-01.webp",
+      "color": "from-blue-500 to-blue-600"
+    },
+    {
+      "name": "直发棒",
+      "icon": "Zap",
+      "description": "集成负离子技术，保护头发不受高温损伤",
+      "image": "/images/products/spec-02.webp",
+      "color": "from-purple-500 to-purple-600"
+    },
+    {
+      "name": "空调",
+      "icon": "Droplets",
+      "description": "空调负离子发生器，净化空气，提升室内环境",
+      "image": "/images/products/spec-03.webp",
+      "color": "from-green-500 to-green-600"
+    },
+    {
+      "name": "空气净化器",
+      "icon": "Leaf",
+      "description": "高效净化空气，去除PM2.5和有害物质",
+      "image": "/images/products/spec-04.webp",
+      "color": "from-emerald-500 to-emerald-600"
+    }
+  ],
+  "qualityStandards": [
+    {
+      "title": "检验标准 1",
+      "description": "产品质量检验标准文件",
+      "image": "/images/quality/standard-01.webp"
+    },
+    {
+      "title": "检验标准 2",
+      "description": "产品质量检验标准文件",
+      "image": "/images/quality/standard-02.webp"
+    },
+    {
+      "title": "检验标准 3",
+      "description": "产品质量检验标准文件",
+      "image": "/images/quality/standard-03.webp"
+    },
+    {
+      "title": "检验标准 4",
+      "description": "产品质量检验标准文件",
+      "image": "/images/quality/standard-04.webp"
+    },
+    {
+      "title": "检验标准 5",
+      "description": "产品质量检验标准文件",
+      "image": "/images/quality/standard-05.webp"
+    },
+    {
+      "title": "检验标准 6",
+      "description": "产品质量检验标准文件",
+      "image": "/images/quality/standard-06.webp"
+    },
+    {
+      "title": "检验标准 7",
+      "description": "产品质量检验标准文件",
+      "image": "/images/quality/standard-07.webp"
+    },
+    {
+      "title": "检验标准 8",
+      "description": "产品质量检验标准文件",
+      "image": "/images/quality/standard-08.webp"
+    }
+  ],
+  "companyStrength": {
+    "strengths": [
+      {
+        "icon": "Building2",
+        "title": "现代化工厂",
+        "value": "3200㎡",
+        "description": "标准化生产车间，配备先进的生产设备和检测仪器"
+      },
+      {
+        "icon": "Users",
+        "title": "专业团队",
+        "value": "80+",
+        "description": "经验丰富的技术团队，包括研发、生产、质检等专业人员"
+      },
+      {
+        "icon": "Cog",
+        "title": "年产能力",
+        "value": "1500万台",
+        "description": "强大的生产能力，满足大批量订单需求"
+      },
+      {
+        "icon": "Award",
+        "title": "行业经验",
+        "value": "10+年",
+        "description": "深耕负离子发生器行业，积累丰富的技术和市场经验"
+      }
+    ],
+    "certifications": [
+      {
+        "name": "UL认证",
+        "code": "UL2089"
+      },
+      {
+        "name": "TUV认证",
+        "code": "TUV SUD"
+      },
+      {
+        "name": "CE认证",
+        "code": "CE-EMC"
+      },
+      {
+        "name": "CB认证",
+        "code": "CB-IEC"
+      },
+      {
+        "name": "CQC认证",
+        "code": "CQC-CCC"
+      },
+      {
+        "name": "ISO9001",
+        "code": "质量管理"
+      }
+    ],
+    "factoryImages": [
+      {
+        "src": "/images/factory/winding-machine.webp",
+        "title": "12轴全自动绕线机",
+        "description": "高精度自动绕线设备，确保产品一致性"
+      },
+      {
+        "src": "/images/factory/insertion-machine.webp",
+        "title": "高速插件机",
+        "description": "自动化插件设备，提高生产效率"
+      },
+      {
+        "src": "/images/factory/terminal-crimping-machine.webp",
+        "title": "全自动端子压着机",
+        "description": "精密端子压接，保证连接可靠性"
+      },
+      {
+        "src": "/images/factory/epoxy-dispensing-machine.webp",
+        "title": "环氧点胶机",
+        "description": "精确点胶工艺，提升产品密封性"
+      },
+      {
+        "src": "/images/factory/dispensing-room.webp",
+        "title": "点胶房",
+        "description": "无尘点胶环境，确保产品质量"
+      },
+      {
+        "src": "/images/factory/assembly-line.webp",
+        "title": "流水线",
+        "description": "标准化生产流程，高效组装作业"
+      },
+      {
+        "src": "/images/factory/aging-area.webp",
+        "title": "产品老化区域",
+        "description": "严格老化测试，确保产品稳定性"
+      },
+      {
+        "src": "/images/factory/winding-machine-primary.webp",
+        "title": "初级绕线设备",
+        "description": "多规格绕线能力，满足不同需求"
+      }
+    ]
+  }
+}
