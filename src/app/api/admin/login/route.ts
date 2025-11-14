@@ -10,7 +10,8 @@ export async function POST(request: Request) {
   }
 
   const token = await createAuthToken(password)
-  cookies().set("admin-auth", token, {
+  const cookieStore = await cookies()
+  cookieStore.set("admin-auth", token, {
     httpOnly: true,
     sameSite: "lax",
     secure: process.env.NODE_ENV === "production",
