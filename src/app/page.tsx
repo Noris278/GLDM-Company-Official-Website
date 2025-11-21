@@ -1,7 +1,7 @@
 import Header from "@/components/sections/Header"
 import Hero from "@/components/sections/Hero"
 import Advantages from "@/components/sections/Advantages"
-import ProductApplications from "@/components/sections/ProductApplications"
+import ApplicationCarousel from "@/components/sections/ApplicationCarousel"
 import Products from "@/components/sections/Products"
 import CompanyStrength from "@/components/sections/CompanyStrength"
 import QualityStandards from "@/components/sections/QualityStandards"
@@ -15,8 +15,8 @@ export default async function Home() {
     <div className="min-h-screen">
       <Header />
       <Hero data={siteContent.hero} stats={siteContent.heroStats} />
-      <Advantages />
-      <ProductApplications applications={siteContent.productApplications} />
+      <Advantages items={siteContent.advantages} stats={siteContent.advantagesStats} />
+      <ApplicationCarousel intro={siteContent.applicationIntro} cards={siteContent.applicationCards} />
       <Products />
       <CompanyStrength data={siteContent.companyStrength} />
       <QualityStandards items={siteContent.qualityStandards} />

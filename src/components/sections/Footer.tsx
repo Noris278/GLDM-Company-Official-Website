@@ -4,9 +4,9 @@ import { Phone, Mail, MapPin, Globe } from "lucide-react"
 
 const footerLinks = {
   products: [
-    { name: "吹风机负离子发生器", href: "/products/hair-dryer" },
-    { name: "空调负离子发生器", href: "/products/air-conditioner" },
-    { name: "空气净化器负离子发生器", href: "/products/air-purifier" },
+    { name: "交流负离子发生器", href: "/products/hair-dryer" },
+    { name: "直流负离子发生器", href: "/products/air-conditioner" },
+    { name: "等离子负离子发生器", href: "/products/air-purifier" },
     { name: "定制化解决方案", href: "/products/custom" }
   ],
   company: [
@@ -41,11 +41,11 @@ export default function Footer() {
               />
               <div className="flex flex-col">
                 <span className="text-xl font-bold text-white">歌林蒂姆</span>
-                <span className="text-xs text-gray-400">GELIN TIME</span>
+                <span className="text-xs text-gray-400">GreenTimes</span>
               </div>
             </Link>
             <p className="text-gray-300 mb-6 leading-relaxed">
-              苏州歌林蒂姆电子科技有限公司，专注负离子发生器研发制造10年，
+              苏州歌林蒂姆电子科技有限公司，专注负离子发生器研发制造12年，
               为国内众多知名企业、家电品牌提供高品质的负离子解决方案。
             </p>
             <div className="space-y-3">
@@ -55,7 +55,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center space-x-3 text-gray-300">
                 <Mail className="w-4 h-4 text-primary-400" />
-                <span>parktrading@126.com</span>
+                <span>admin@szgldm.cn</span>
               </div>
               <div className="flex items-center space-x-3 text-gray-300">
                 <MapPin className="w-4 h-4 text-primary-400" />

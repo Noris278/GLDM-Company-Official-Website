@@ -1,7 +1,10 @@
 "use client"
 
+import { useEffect, useState } from "react"
+import Link from "next/link"
+import Image from "next/image"
 import { motion } from "framer-motion"
-import { ArrowRight, Play, CheckCircle } from "lucide-react"
+import { ArrowRight, CheckCircle, ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import type { SiteContent } from "@/lib/content"
 
@@ -11,8 +14,31 @@ type HeroProps = {
 }
 
 export default function Hero({ data, stats }: HeroProps) {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const hasGallery = data.gallery && data.gallery.length > 0
+
+  useEffect(() => {
+    if (!hasGallery) return
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % data.gallery.length)
+    }, 5000)
+    return () => clearInterval(interval)
+  }, [data.gallery.length, hasGallery])
+
+  const goToPrevious = () => {
+    if (!hasGallery) return
+    setCurrentImageIndex((prev) => (prev - 1 + data.gallery.length) % data.gallery.length)
+  }
+
+  const goToNext = () => {
+    if (!hasGallery) return
+    setCurrentImageIndex((prev) => (prev + 1) % data.gallery.length)
+  }
+
+  const currentImage = hasGallery ? data.gallery[currentImageIndex] : null
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden py-16 lg:py-24">
       {/* 背景渐变 */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-primary-100"></div>
       
@@ -92,13 +118,11 @@ export default function Hero({ data, stats }: HeroProps) {
               transition={{ duration: 0.6, delay: 0.6 }}
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
-              <Button size="lg" className="group">
-                立即咨询
-                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button variant="outline" size="lg" className="group">
-                <Play className="mr-2 w-4 h-4" />
-                观看视频
+              <Button size="lg" className="group" asChild>
+                <Link href="/contact">
+                  立即咨询
+                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
               </Button>
             </motion.div>
 
@@ -125,23 +149,60 @@ export default function Hero({ data, stats }: HeroProps) {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
-            <div className="relative w-full h-96 lg:h-[500px] bg-gradient-to-br from-primary-100 to-primary-200 rounded-3xl overflow-hidden shadow-2xl">
-              {/* 这里可以放置产品图片或3D动画 */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center text-primary-700">
-                  <div className="w-32 h-32 bg-primary-300 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <div className="w-16 h-16 bg-primary-500 rounded-full animate-pulse"></div>
+            <div className="relative w-full h-96 lg:h-[500px] rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-primary-100 to-primary-200">
+              {currentImage ? (
+                <>
+                  <Image
+                    src={currentImage.src}
+                    alt={currentImage.alt || "产品展示"}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+                    <div>
+                      <p className="text-white text-lg font-semibold">{currentImage.alt || "产品展示"}</p>
+                      <p className="text-white/70 text-sm">负离子解决方案</p>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <button
+                        onClick={goToPrevious}
+                        className="w-10 h-10 rounded-full bg-white/90 text-gray-700 hover:bg-white flex items-center justify-center transition"
+                        aria-label="上一张"
+                      >
+                        <ChevronLeft className="w-5 h-5" />
+                      </button>
+                      <button
+                        onClick={goToNext}
+                        className="w-10 h-10 rounded-full bg-white/90 text-gray-700 hover:bg-white flex items-center justify-center transition"
+                        aria-label="下一张"
+                      >
+                        <ChevronRight className="w-5 h-5" />
+                      </button>
+                    </div>
                   </div>
-                  <p className="text-lg font-medium">负离子发生器</p>
-                  <p className="text-sm opacity-75">产品展示区域</p>
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+                    {data.gallery.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentImageIndex(index)}
+                        className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                          index === currentImageIndex ? "bg-white scale-110" : "bg-white/50"
+                        }`}
+                        aria-label={`切换到第${index + 1}张`}
+                      />
+                    ))}
+                  </div>
+                </>
+              ) : (
+                <div className="absolute inset-0 flex items-center justify-center text-primary-700">
+                  <div className="text-center space-y-2">
+                    <p className="text-lg font-medium">负离子发生器</p>
+                    <p className="text-sm opacity-75">产品展示区域</p>
+                  </div>
                 </div>
-              </div>
-              
-              {/* 浮动元素 */}
-              <div className="absolute top-4 right-4 w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center animate-bounce">
-                <div className="w-8 h-8 bg-primary-400 rounded-full"></div>
-              </div>
-              <div className="absolute bottom-4 left-4 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full animate-pulse"></div>
+              )}
             </div>
           </motion.div>
         </div>

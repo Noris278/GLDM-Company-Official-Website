@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -147,6 +148,14 @@ export default function ContentAdminPage() {
         </div>
       </header>
 
+      <div className="flex gap-4 text-sm text-gray-600">
+        <span className="text-primary-600 font-semibold">首页内容</span>
+        <span>·</span>
+        <Link href="/admin/about" className="hover:text-primary-600">
+          关于我们内容
+        </Link>
+      </div>
+
       {status && <div className="text-sm text-primary-600">{status}</div>}
 
       <Card>
@@ -190,6 +199,525 @@ export default function ContentAdminPage() {
           </div>
         </CardContent>
       </Card>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>首页应用领域标题</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <label className="block text-sm font-medium text-gray-700">
+            徽章文字
+            <input
+              className="mt-1 w-full rounded border border-gray-200 p-2"
+              value={content.applicationIntro.badge}
+              onChange={(event) =>
+                setContent({
+                  ...content,
+                  applicationIntro: { ...content.applicationIntro, badge: event.target.value },
+                })
+              }
+            />
+          </label>
+          <label className="block text-sm font-medium text-gray-700">
+            标题
+            <input
+              className="mt-1 w-full rounded border border-gray-200 p-2"
+              value={content.applicationIntro.title}
+              onChange={(event) =>
+                setContent({
+                  ...content,
+                  applicationIntro: { ...content.applicationIntro, title: event.target.value },
+                })
+              }
+            />
+          </label>
+          <label className="block text-sm font-medium text-gray-700">
+            高亮文字
+            <input
+              className="mt-1 w-full rounded border border-gray-200 p-2"
+              value={content.applicationIntro.highlight}
+              onChange={(event) =>
+                setContent({
+                  ...content,
+                  applicationIntro: { ...content.applicationIntro, highlight: event.target.value },
+                })
+              }
+            />
+          </label>
+          <label className="block text-sm font-medium text-gray-700">
+            描述
+            <textarea
+              className="mt-1 w-full rounded border border-gray-200 p-2 h-24"
+              value={content.applicationIntro.description}
+              onChange={(event) =>
+                setContent({
+                  ...content,
+                  applicationIntro: { ...content.applicationIntro, description: event.target.value },
+                })
+              }
+            />
+          </label>
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>核心优势（六宫格）</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          {content.advantages.map((advantage, index) => (
+            <div key={index} className="space-y-4 border border-dashed border-gray-200 rounded-lg p-4">
+              <div className="grid md:grid-cols-2 gap-4">
+                <label className="text-sm font-medium text-gray-700">
+                  标题
+                  <input
+                    className="mt-1 w-full rounded border border-gray-200 p-2"
+                    value={advantage.title}
+                    onChange={(event) => {
+                      const next = [...content.advantages]
+                      next[index] = { ...advantage, title: event.target.value }
+                      setContent({ ...content, advantages: next })
+                    }}
+                  />
+                </label>
+                <label className="text-sm font-medium text-gray-700">
+                  图片路径
+                  <input
+                    className="mt-1 w-full rounded border border-gray-200 p-2"
+                    value={advantage.image}
+                    onChange={(event) => {
+                      const next = [...content.advantages]
+                      next[index] = { ...advantage, image: event.target.value }
+                      setContent({ ...content, advantages: next })
+                    }}
+                  />
+                </label>
+              </div>
+              <label className="text-sm font-medium text-gray-700">
+                描述
+                <textarea
+                  className="mt-1 w-full rounded border border-gray-200 p-2 h-24"
+                  value={advantage.description}
+                  onChange={(event) => {
+                    const next = [...content.advantages]
+                    next[index] = { ...advantage, description: event.target.value }
+                    setContent({ ...content, advantages: next })
+                  }}
+                />
+              </label>
+              <div className="flex justify-end">
+                <Button
+                  type="button"
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => {
+                    const next = content.advantages.filter((_, i) => i !== index)
+                    setContent({ ...content, advantages: next })
+                  }}
+                >
+                  删除
+                </Button>
+              </div>
+            </div>
+          ))}
+          <Button
+            type="button"
+            variant="outline"
+            onClick={() =>
+              setContent({
+                ...content,
+                advantages: [
+                  ...content.advantages,
+                  { title: "新增优势", description: "", image: "/images/factory/winding-machine.webp" },
+                ],
+              })
+            }
+          >
+            新增卡片
+          </Button>
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>核心优势 - 统计数据</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          {content.advantagesStats.map((stat, index) => (
+            <div key={index} className="grid md:grid-cols-2 gap-4">
+              <label className="text-sm font-medium text-gray-700">
+                数值
+                <input
+                  className="mt-1 w-full rounded border border-gray-200 p-2"
+                  value={stat.value}
+                  onChange={(event) => {
+                    const next = [...content.advantagesStats]
+                    next[index] = { ...stat, value: event.target.value }
+                    setContent({ ...content, advantagesStats: next })
+                  }}
+                />
+              </label>
+              <label className="text-sm font-medium text-gray-700">
+                描述
+                <input
+                  className="mt-1 w-full rounded border border-gray-200 p-2"
+                  value={stat.label}
+                  onChange={(event) => {
+                    const next = [...content.advantagesStats]
+                    next[index] = { ...stat, label: event.target.value }
+                    setContent({ ...content, advantagesStats: next })
+                  }}
+                />
+              </label>
+              <div className="md:col-span-2 flex justify-end">
+                <Button
+                  type="button"
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => {
+                    const next = content.advantagesStats.filter((_, i) => i !== index)
+                    setContent({ ...content, advantagesStats: next })
+                  }}
+                >
+                  删除
+                </Button>
+              </div>
+            </div>
+          ))}
+          <Button
+            type="button"
+            variant="outline"
+            onClick={() =>
+              setContent({
+                ...content,
+                advantagesStats: [...content.advantagesStats, { value: "0", label: "新增描述" }],
+              })
+            }
+          >
+            新增统计
+          </Button>
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>产品中心 - 页面文案</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <label className="block text-sm font-medium text-gray-700">
+            徽章文字
+            <input
+              className="mt-1 w-full rounded border border-gray-200 p-2"
+              value={content.productIntro.badge}
+              onChange={(event) =>
+                setContent({
+                  ...content,
+                  productIntro: { ...content.productIntro, badge: event.target.value },
+                })
+              }
+            />
+          </label>
+          <label className="block text-sm font-medium text-gray-700">
+            标题
+            <input
+              className="mt-1 w-full rounded border border-gray-200 p-2"
+              value={content.productIntro.title}
+              onChange={(event) =>
+                setContent({
+                  ...content,
+                  productIntro: { ...content.productIntro, title: event.target.value },
+                })
+              }
+            />
+          </label>
+          <label className="block text-sm font-medium text-gray-700">
+            高亮文字
+            <input
+              className="mt-1 w-full rounded border border-gray-200 p-2"
+              value={content.productIntro.highlight}
+              onChange={(event) =>
+                setContent({
+                  ...content,
+                  productIntro: { ...content.productIntro, highlight: event.target.value },
+                })
+              }
+            />
+          </label>
+          <label className="block text-sm font-medium text-gray-700">
+            描述
+            <textarea
+              className="mt-1 w-full rounded border border-gray-200 p-2 h-24"
+              value={content.productIntro.description}
+              onChange={(event) =>
+                setContent({
+                  ...content,
+                  productIntro: { ...content.productIntro, description: event.target.value },
+                })
+              }
+            />
+          </label>
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>产品中心 - 产品列表</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-6">
+          {content.products.map((product, index) => (
+            <div key={index} className="space-y-4 border border-dashed border-gray-200 rounded-lg p-4">
+              <div className="grid md:grid-cols-2 gap-4">
+                <label className="text-sm font-medium text-gray-700">
+                  标题
+                  <input
+                    className="mt-1 w-full rounded border border-gray-200 p-2"
+                    value={product.title}
+                    onChange={(event) => {
+                      const next = [...content.products]
+                      next[index] = { ...product, title: event.target.value }
+                      setContent({ ...content, products: next })
+                    }}
+                  />
+                </label>
+                <label className="text-sm font-medium text-gray-700">
+                  副标题
+                  <input
+                    className="mt-1 w-full rounded border border-gray-200 p-2"
+                    value={product.subtitle}
+                    onChange={(event) => {
+                      const next = [...content.products]
+                      next[index] = { ...product, subtitle: event.target.value }
+                      setContent({ ...content, products: next })
+                    }}
+                  />
+                </label>
+              </div>
+              <label className="text-sm font-medium text-gray-700">
+                描述
+                <textarea
+                  className="mt-1 w-full rounded border border-gray-200 p-2 h-24"
+                  value={product.description}
+                  onChange={(event) => {
+                    const next = [...content.products]
+                    next[index] = { ...product, description: event.target.value }
+                    setContent({ ...content, products: next })
+                  }}
+                />
+              </label>
+              <label className="text-sm font-medium text-gray-700">
+                图片路径
+                <input
+                  className="mt-1 w-full rounded border border-gray-200 p-2"
+                  value={product.image}
+                  onChange={(event) => {
+                    const next = [...content.products]
+                    next[index] = { ...product, image: event.target.value }
+                    setContent({ ...content, products: next })
+                  }}
+                />
+              </label>
+              <label className="text-sm font-medium text-gray-700">
+                特性（每行一个）
+                <textarea
+                  className="mt-1 w-full rounded border border-gray-200 p-2 h-24"
+                  value={product.features.join("\n")}
+                  onChange={(event) => {
+                    const values = event.target.value
+                      .split("\n")
+                      .map((item) => item.trim())
+                      .filter(Boolean)
+                    const next = [...content.products]
+                    next[index] = { ...product, features: values }
+                    setContent({ ...content, products: next })
+                  }}
+                />
+              </label>
+              <label className="text-sm font-medium text-gray-700">
+                应用领域（每行一个）
+                <textarea
+                  className="mt-1 w-full rounded border border-gray-200 p-2 h-20"
+                  value={product.applications.join("\n")}
+                  onChange={(event) => {
+                    const values = event.target.value
+                      .split("\n")
+                      .map((item) => item.trim())
+                      .filter(Boolean)
+                    const next = [...content.products]
+                    next[index] = { ...product, applications: values }
+                    setContent({ ...content, products: next })
+                  }}
+                />
+              </label>
+
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <h4 className="text-sm font-semibold text-gray-800">技术规格</h4>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={() => {
+                      const next = [...content.products]
+                      next[index] = {
+                        ...product,
+                        specs: [...product.specs, { label: "新规格", value: "" }],
+                      }
+                      setContent({ ...content, products: next })
+                    }}
+                  >
+                    新增规格
+                  </Button>
+                </div>
+                {product.specs.map((spec, specIndex) => (
+                  <div key={specIndex} className="grid md:grid-cols-2 gap-3 items-center">
+                    <input
+                      className="rounded border border-gray-200 p-2 text-sm"
+                      value={spec.label}
+                      onChange={(event) => {
+                        const next = [...content.products]
+                        const specs = [...product.specs]
+                        specs[specIndex] = { ...spec, label: event.target.value }
+                        next[index] = { ...product, specs }
+                        setContent({ ...content, products: next })
+                      }}
+                    />
+                    <div className="flex space-x-2">
+                      <input
+                        className="w-full rounded border border-gray-200 p-2 text-sm"
+                        value={spec.value}
+                        onChange={(event) => {
+                          const next = [...content.products]
+                          const specs = [...product.specs]
+                          specs[specIndex] = { ...spec, value: event.target.value }
+                          next[index] = { ...product, specs }
+                          setContent({ ...content, products: next })
+                        }}
+                      />
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => {
+                          const next = [...content.products]
+                          next[index] = {
+                            ...product,
+                            specs: product.specs.filter((_, i) => i !== specIndex),
+                          }
+                          setContent({ ...content, products: next })
+                        }}
+                      >
+                        删除
+                      </Button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex justify-end">
+                <Button
+                  type="button"
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => {
+                    const next = content.products.filter((_, i) => i !== index)
+                    setContent({ ...content, products: next })
+                  }}
+                >
+                  删除产品
+                </Button>
+              </div>
+            </div>
+          ))}
+          <Button
+            type="button"
+            variant="outline"
+            onClick={() =>
+              setContent({
+                ...content,
+                products: [
+                  ...content.products,
+                  {
+                    title: "新增产品",
+                    subtitle: "Product Sub Title",
+                    description: "",
+                    image: "/images/products/spec-01.webp",
+                    features: [],
+                    applications: [],
+                    specs: [],
+                  },
+                ],
+              })
+            }
+          >
+            新增产品
+          </Button>
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>首页应用领域卡片</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          {content.applicationCards.map((card, index) => (
+            <div key={index} className="grid md:grid-cols-2 gap-4 border border-dashed border-gray-200 rounded-lg p-4">
+              <label className="text-sm font-medium text-gray-700">
+                标题
+                <input
+                  className="mt-1 w-full rounded border border-gray-200 p-2"
+                  value={card.title}
+                  onChange={(event) => {
+                    const next = [...content.applicationCards]
+                    next[index] = { ...card, title: event.target.value }
+                    setContent({ ...content, applicationCards: next })
+                  }}
+                />
+              </label>
+              <label className="text-sm font-medium text-gray-700">
+                图片路径
+                <input
+                  className="mt-1 w-full rounded border border-gray-200 p-2"
+                  value={card.image}
+                  onChange={(event) => {
+                    const next = [...content.applicationCards]
+                    next[index] = { ...card, image: event.target.value }
+                    setContent({ ...content, applicationCards: next })
+                  }}
+                />
+              </label>
+              <div className="md:col-span-2 flex justify-end">
+                <Button
+                  type="button"
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => {
+                    const next = content.applicationCards.filter((_, i) => i !== index)
+                    setContent({ ...content, applicationCards: next })
+                  }}
+                >
+                  删除卡片
+                </Button>
+              </div>
+            </div>
+          ))}
+          <Button
+            type="button"
+            variant="outline"
+            onClick={() =>
+              setContent({
+                ...content,
+                applicationCards: [
+                  ...content.applicationCards,
+                  { title: "新增应用", image: "/images/products/spec-01.webp" },
+                ],
+              })
+            }
+          >
+            新增应用卡片
+          </Button>
+        </CardContent>
+      </Card>
+
 
       <Card>
         <CardHeader>
@@ -248,6 +776,74 @@ export default function ContentAdminPage() {
               }
             />
           </label>
+          <div className="border-t border-gray-100 pt-6 space-y-4">
+            <div className="flex items-center justify-between">
+              <div>
+                <h3 className="text-base font-semibold text-gray-900">右侧轮播图片</h3>
+                <p className="text-sm text-gray-500">
+                  可先使用上方“素材上传”功能获取图片地址，再填入此处。
+                </p>
+              </div>
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                onClick={() => {
+                  const next = [
+                    ...content.hero.gallery,
+                    { src: "/images/factory/winding-machine.webp", alt: "新增轮播图" },
+                  ]
+                  setContent({ ...content, hero: { ...content.hero, gallery: next } })
+                }}
+              >
+                新增图片
+              </Button>
+            </div>
+            {content.hero.gallery.length === 0 && (
+              <p className="text-sm text-gray-500">当前没有轮播图片。</p>
+            )}
+            {content.hero.gallery.map((image, index) => (
+              <div key={index} className="grid md:grid-cols-2 gap-4 border border-dashed border-gray-200 rounded-lg p-4">
+                <label className="text-sm font-medium text-gray-700">
+                  图片路径
+                  <input
+                    className="mt-1 w-full rounded border border-gray-200 p-2"
+                    value={image.src}
+                    onChange={(event) => {
+                      const next = [...content.hero.gallery]
+                      next[index] = { ...image, src: event.target.value }
+                      setContent({ ...content, hero: { ...content.hero, gallery: next } })
+                    }}
+                  />
+                </label>
+                <label className="text-sm font-medium text-gray-700">
+                  文案/Alt
+                  <input
+                    className="mt-1 w-full rounded border border-gray-200 p-2"
+                    value={image.alt ?? ""}
+                    onChange={(event) => {
+                      const next = [...content.hero.gallery]
+                      next[index] = { ...image, alt: event.target.value }
+                      setContent({ ...content, hero: { ...content.hero, gallery: next } })
+                    }}
+                  />
+                </label>
+                <div className="md:col-span-2 flex justify-end">
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => {
+                      const next = content.hero.gallery.filter((_, i) => i !== index)
+                      setContent({ ...content, hero: { ...content.hero, gallery: next } })
+                    }}
+                  >
+                    删除
+                  </Button>
+                </div>
+              </div>
+            ))}
+          </div>
         </CardContent>
       </Card>
 

@@ -126,7 +126,7 @@ export default function Products() {
               </p>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <div className="text-2xl font-bold mb-1">99.9%</div>
+                  <div className="text-2xl font-bold mb-1">99.99%</div>
                   <div className="text-primary-200 text-sm">产品合格率</div>
                 </div>
                 <div>

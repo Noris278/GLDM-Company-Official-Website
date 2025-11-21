@@ -10,7 +10,15 @@ import { cn } from "@/lib/utils"
 const navigation = [
   { name: "首页", href: "/" },
   { name: "产品中心", href: "/products" },
-  { name: "关于我们", href: "/about" },
+  {
+    name: "关于我们",
+    href: "/about",
+    children: [
+      { name: "公司简介", href: "/about#about-company" },
+      { name: "发展历程", href: "/about#about-history" },
+      { name: "厂房设备", href: "/about#about-facilities" },
+    ],
+  },
   { name: "品控系统", href: "/quality-control" },
   { name: "资质认证", href: "/certifications" },
   { name: "联系我们", href: "/contact" },
@@ -19,6 +27,8 @@ const navigation = [
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
+  const [dropdownTimeout, setDropdownTimeout] = useState<NodeJS.Timeout | null>(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,11 +51,11 @@ export default function Header() {
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="w-4 h-4" />
-                <span>parktrading@126.com</span>
+                <span>admin@szgldm.cn</span>
               </div>
             </div>
             <div className="text-primary-600">
-              专业负离子发生器制造商 | 10年行业经验
+              专业负离子发生器研发制造商 | 12年行业经验
             </div>
           </div>
         </div>
@@ -80,25 +90,72 @@ export default function Header() {
 
             {/* 桌面导航 */}
             <nav className="hidden lg:flex items-center space-x-8">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="text-gray-700 hover:text-primary-600 font-medium transition-colors duration-200 relative group"
-                >
-                  {item.name}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-500 transition-all duration-300 group-hover:w-full"></span>
-                </Link>
-              ))}
+              {navigation.map((item) => {
+                if (item.children) {
+                  return (
+                    <div
+                      key={item.name}
+                      className="relative"
+                      onMouseEnter={() => {
+                        if (dropdownTimeout) {
+                          clearTimeout(dropdownTimeout)
+                          setDropdownTimeout(null)
+                        }
+                        setActiveDropdown(item.name)
+                      }}
+                      onMouseLeave={() => {
+                        const timeout = setTimeout(() => setActiveDropdown(null), 200)
+                        setDropdownTimeout(timeout)
+                      }}
+                    >
+                      <Link
+                        href={item.href}
+                        className="group text-gray-700 hover:text-primary-600 font-medium transition-colors duration-200 relative inline-flex items-center"
+                      >
+                        {item.name}
+                        <span className="absolute -bottom-1 left-0 h-0.5 bg-primary-500 transition-all duration-300 w-0 group-hover:w-full group-focus-visible:w-full"></span>
+                      </Link>
+                      <div
+                        className={`absolute left-0 top-full mt-2 rounded-2xl bg-white shadow-xl transition duration-200 ${
+                          activeDropdown === item.name ? "opacity-100 scale-100 visible" : "opacity-0 scale-95 invisible"
+                        }`}
+                        style={{
+                          minWidth: "180px",
+                          border: "1px solid rgba(16, 185, 129, 0.2)",
+                          pointerEvents: activeDropdown === item.name ? "auto" : "none",
+                        }}
+                      >
+                        {item.children.map((child) => (
+                          <Link
+                            key={child.name}
+                            href={child.href}
+                            className="block pr-4 py-3 text-base text-gray-600 hover:text-primary-600 hover:bg-primary-50 rounded-2xl transition whitespace-nowrap"
+                            style={{ paddingLeft: "32px" }}
+                          >
+                            {child.name}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )
+                }
+                return (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className="group text-gray-700 hover:text-primary-600 font-medium transition-colors duration-200 relative inline-flex items-center"
+                  >
+                    {item.name}
+                    <span className="absolute -bottom-1 left-0 h-0.5 bg-primary-500 transition-all duration-300 w-0 group-hover:w-full group-focus-visible:w-full"></span>
+                  </Link>
+                )
+              })}
             </nav>
 
             {/* 联系按钮 */}
             <div className="hidden lg:flex items-center space-x-4">
-              <Button variant="outline" size="sm">
-                获取报价
-              </Button>
-              <Button size="sm">
-                立即咨询
+              <Button size="sm" asChild>
+                <Link href="/contact">立即咨询</Link>
               </Button>
             </div>
 
@@ -118,21 +175,33 @@ export default function Header() {
             <div className="container mx-auto px-4 py-4">
               <nav className="flex flex-col space-y-4">
                 {navigation.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className="text-gray-700 hover:text-primary-600 font-medium py-2 border-b border-gray-100 last:border-b-0"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
+                  <div key={item.name}>
+                    <Link
+                      href={item.href}
+                      className="text-gray-700 hover:text-primary-600 font-medium py-2 border-b border-gray-100 flex items-center justify-between"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                    {item.children && (
+                      <div className="pl-4 border-b border-gray-100">
+                        {item.children.map((child) => (
+                          <Link
+                            key={child.name}
+                            href={child.href}
+                            className="block text-gray-500 hover:text-primary-600 py-1 text-sm"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            {child.name}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 ))}
                 <div className="flex flex-col space-y-2 pt-4">
-                  <Button variant="outline" size="sm">
-                    获取报价
-                  </Button>
-                  <Button size="sm">
-                    立即咨询
+                  <Button size="sm" asChild>
+                    <Link href="/contact">立即咨询</Link>
                   </Button>
                 </div>
               </nav>

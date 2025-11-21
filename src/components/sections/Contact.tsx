@@ -14,7 +14,7 @@ const contactInfo = [
   {
     icon: Mail,
     title: "邮箱地址",
-    content: "parktrading@126.com"
+    content: "admin@szgldm.cn"
   },
   {
     icon: MapPin,

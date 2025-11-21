@@ -1,51 +1,16 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Phone, Mail, MapPin, Clock, Send, MessageCircle, FileText, Users } from "lucide-react"
+import { Phone, Mail, MapPin, Clock, Send, Users } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Header from "@/components/sections/Header"
 import Footer from "@/components/sections/Footer"
 
-const contactMethods = [
-  {
-    icon: Phone,
-    title: "电话咨询",
-    content: "+86-512-66539481",
-    description: "工作日 9:00-18:00 专业客服为您服务",
-    action: "立即拨打",
-    color: "text-blue-600"
-  },
-  {
-    icon: Mail,
-    title: "邮件咨询",
-    content: "info@gelintime.com",
-    description: "24小时内专业回复，详细解答您的问题",
-    action: "发送邮件",
-    color: "text-green-600"
-  },
-  {
-    icon: MessageCircle,
-    title: "在线客服",
-    content: "即时沟通",
-    description: "工作时间在线，快速响应您的需求",
-    action: "开始对话",
-    color: "text-purple-600"
-  },
-  {
-    icon: FileText,
-    title: "技术支持",
-    content: "专业团队",
-    description: "技术专家提供专业的产品咨询和支持",
-    action: "获取支持",
-    color: "text-orange-600"
-  }
-]
-
 const officeInfo = [
   {
     title: "总部地址",
-    content: "苏州市吴中区科技园",
+    content: "江苏省苏州市吴中区甪直镇长虹北路248-2号",
     icon: MapPin
   },
   {
@@ -55,7 +20,7 @@ const officeInfo = [
   },
   {
     title: "服务团队",
-    content: "80+ 专业员工",
+    content: "90+ 专业员工",
     icon: Users
   }
 ]
@@ -86,50 +51,6 @@ export default function ContactPage() {
               专业的技术团队随时为您提供咨询服务，期待与您携手共创美好未来
             </p>
           </motion.div>
-        </div>
-      </section>
-
-      {/* 联系方式 */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">多种联系方式</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              选择最适合您的联系方式，我们将竭诚为您服务
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            {contactMethods.map((method, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Card className="h-full text-center hover:shadow-xl transition-all duration-300 group border-0 bg-white">
-                  <CardContent className="p-8">
-                    <div className={`w-16 h-16 bg-gray-100 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-gray-200 transition-colors`}>
-                      <method.icon className={`w-8 h-8 ${method.color}`} />
-                    </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">{method.title}</h3>
-                    <p className="text-lg font-medium text-gray-800 mb-3">{method.content}</p>
-                    <p className="text-gray-600 text-sm mb-6 leading-relaxed">{method.description}</p>
-                    <Button variant="outline" className="w-full group-hover:bg-primary-500 group-hover:text-white group-hover:border-primary-500 transition-all">
-                      {method.action}
-                    </Button>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -261,20 +182,7 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* 地图区域 */}
-              <Card className="border-0 bg-white">
-                <CardContent className="p-0">
-                  <div className="w-full h-64 bg-gradient-to-br from-primary-100 to-primary-200 rounded-lg overflow-hidden">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="text-center text-primary-700">
-                        <MapPin className="w-16 h-16 mx-auto mb-4" />
-                        <p className="text-lg font-medium">公司位置</p>
-                        <p className="text-sm opacity-75">苏州市吴中区</p>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+            
 
               {/* 快速联系 */}
               <div className="space-y-4">

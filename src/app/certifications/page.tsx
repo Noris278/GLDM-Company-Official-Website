@@ -250,7 +250,7 @@ export default function CertificationsPage() {
             <h2 className="text-4xl font-bold mb-8">我们的质量承诺</h2>
             <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
               <div className="text-center">
-                <div className="text-4xl font-bold mb-4">99.9%</div>
+                <div className="text-4xl font-bold mb-4">99.99%</div>
                 <h3 className="text-xl font-bold mb-3">产品合格率</h3>
                 <p className="text-primary-100">
                   严格的质量控制确保每个产品都符合标准
@@ -264,7 +264,7 @@ export default function CertificationsPage() {
                 </p>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold mb-4">10年</div>
+                <div className="text-4xl font-bold mb-4">12年</div>
                 <h3 className="text-xl font-bold mb-3">行业经验</h3>
                 <p className="text-primary-100">
                   丰富的行业经验保证产品质量稳定

@@ -7,28 +7,92 @@
       "suffix": "创新未来"
     },
     "descriptions": [
-      "苏州歌林蒂姆电子科技有限公司成立于2013年10月，专业生产负离子发生器、等离子发生器和臭氧发生器，从事该行业已近10余年的历史。",
+      "苏州歌林蒂姆电子科技有限公司成立于2013年10月，专业研发、生产、销售负离子发生器（主要包括：交流负离子发生器、直流负离子发生器、直流等离子发生器），行业经验12余年。",
       "拥有丰富的制造经验，技术人员的班底由行业知名企业技术人员组建，为国内众多知名企业、家电品牌提供高品质的负离子解决方案。"
     ],
     "features": [
-      "10年专业制造经验",
-      "年产能1500万台",
+      "12年专业制造经验",
+      "年产能2000+万台",
       "国际认证齐全",
       "品质保证"
+    ],
+    "gallery": [
+      {
+        "src": "/images/factory/winding-machine.webp",
+        "alt": "自动化绕线设备"
+      },
+      {
+        "src": "/images/factory/assembly-line.webp",
+        "alt": "生产流水线"
+      },
+      {
+        "src": "/images/factory/epoxy-dispensing-machine.webp",
+        "alt": "环氧点胶工艺"
+      }
     ]
   },
   "heroStats": [
     {
       "label": "年行业经验",
-      "value": "10+"
+      "value": "12+"
     },
     {
       "label": "年产能（台）",
-      "value": "1500万"
+      "value": "2000万"
     },
     {
       "label": "专业员工",
-      "value": "80+"
+      "value": "90+"
+    }
+  ],
+  "advantages": [
+    {
+      "title": "品质保证",
+      "description": "严格的质量控制体系，确保每一台产品都符合国际标准",
+      "image": "/uploads/1763708384172-ChatGPT_Image_2025_11_21__14_58_41.webp"
+    },
+    {
+      "title": "权威认证",
+      "description": "通过UL、TUV、CE、CB、CQC、ISO9001等多项认证",
+      "image": "/uploads/1763708785092-__2025-11-21_15.06.12.webp"
+    },
+    {
+      "title": "专业团队",
+      "description": "90+专业技术人员，12年行业经验积累",
+      "image": "/uploads/1763708855954-__2025-11-21_15.07.26.webp"
+    },
+    {
+      "title": "技术创新",
+      "description": "持续的技术研发投入，引领负离子技术发展",
+      "image": "/uploads/1763709093437-__2025-11-21_15.11.22.webp"
+    },
+    {
+      "title": "规模生产",
+      "description": "3200㎡现代化工厂，年产能2000万台",
+      "image": "/images/factory/aging-area.webp"
+    },
+    {
+      "title": "专业服务",
+      "description": "为国内众多企业提供定制化负离子解决方案",
+      "image": "/uploads/1763710616234-__2025-11-21_15.34.29.webp"
+    }
+  ],
+  "advantagesStats": [
+    {
+      "value": "12+",
+      "label": "年行业经验"
+    },
+    {
+      "value": "2000万",
+      "label": "年产能（台）"
+    },
+    {
+      "value": "3200",
+      "label": "工厂面积（㎡）"
+    },
+    {
+      "value": "90+",
+      "label": "专业员工"
     }
   ],
   "productApplications": [
@@ -103,6 +167,172 @@
       "image": "/images/quality/standard-08.webp"
     }
   ],
+  "productIntro": {
+    "badge": "产品应用",
+    "title": "广泛的应用领域",
+    "highlight": "负离子解决方案",
+    "description": "我们的负离子发生器可灵活集成到吹风机、直发棒、空调、空气净化器等多类终端产品中，为用户提供更健康、更舒适的生活体验。"
+  },
+  "products": [
+    {
+      "title": "交流负离子发生器",
+      "subtitle": "",
+      "description": "",
+      "image": "/uploads/1763715378968-__2025-11-21_16.56.05.webp",
+      "features": [
+        "高浓度负离子输出",
+        "低功耗设计",
+        "长寿命运行",
+        "小型化设计",
+        "易于集成"
+      ],
+      "specs": [
+        {
+          "label": "输入电压",
+          "value": "DC1.5V， DC3V， DC5V，DC12V"
+        },
+        {
+          "label": "输出电路",
+          "value": "≤100mA"
+        },
+        {
+          "label": "输出电压",
+          "value": "DC－3.5KV±1.5KV"
+        },
+        {
+          "label": "环境温度范围",
+          "value": "-10 - 80℃"
+        },
+        {
+          "label": "环境湿度范围",
+          "value": "≤90%"
+        }
+      ],
+      "applications": [
+        "美容美发行业",
+        "空气净化",
+        "厨房电器",
+        "车载设备",
+        "消毒灭菌"
+      ]
+    },
+    {
+      "title": "直流负离子发生器",
+      "subtitle": "",
+      "description": "",
+      "image": "",
+      "features": [
+        "高浓度负离子输出",
+        "低功耗设计",
+        "长寿命运行",
+        "小型化设计",
+        "易于集成"
+      ],
+      "specs": [
+        {
+          "label": "负离子浓度",
+          "value": "≥5×10⁶个/cm³"
+        },
+        {
+          "label": "工作电压",
+          "value": "AC 220V"
+        },
+        {
+          "label": "功耗",
+          "value": "≤5W"
+        },
+        {
+          "label": "工作温度",
+          "value": "-20℃~+70℃"
+        },
+        {
+          "label": "使用寿命",
+          "value": "≥10000小时"
+        }
+      ],
+      "applications": [
+        "美容美发行业",
+        "空气净化",
+        "厨房电器",
+        "车载设备",
+        "消毒灭菌"
+      ]
+    },
+    {
+      "title": "等离子发生器",
+      "subtitle": "",
+      "description": "",
+      "image": "",
+      "features": [
+        "超高净化效率高浓度负离子输出",
+        "低功耗设计",
+        "长寿命运行",
+        "小型化设计",
+        "易于集成"
+      ],
+      "specs": [
+        {
+          "label": "负离子浓度",
+          "value": "≥8×10⁶个/cm³"
+        },
+        {
+          "label": "工作电压",
+          "value": "DC 24V"
+        },
+        {
+          "label": "功耗",
+          "value": "≤8W"
+        },
+        {
+          "label": "工作温度",
+          "value": "0℃~+50℃"
+        },
+        {
+          "label": "使用寿命",
+          "value": "≥12000小时"
+        }
+      ],
+      "applications": [
+        "美容美发行业",
+        "空气净化",
+        "厨房电器",
+        "车载设备",
+        "消毒灭菌"
+      ]
+    }
+  ],
+  "applicationIntro": {
+    "badge": "应用领域",
+    "title": "广泛应用领域",
+    "highlight": "助力行业发展",
+    "description": "负离子发生器可灵活集成到吹风机、空调、空气净化器等多类终端产品中，为用户提供更健康、更舒适的生活体验。"
+  },
+  "applicationCards": [
+    {
+      "title": "家用/专业吹风机",
+      "image": "/uploads/1763712713157-__2025-11-21_16.11.45.webp"
+    },
+    {
+      "title": "美容美发行业 直发棒",
+      "image": "/uploads/1763712752068-__2025-11-21_16.12.22.webp"
+    },
+    {
+      "title": "空气净化器",
+      "image": "/uploads/1763712807457-__2025-11-21_16.13.18.webp"
+    },
+    {
+      "title": "空调",
+      "image": "/uploads/1763713186083-__2025-11-21_16.14.22.webp"
+    },
+    {
+      "title": "除湿机",
+      "image": "/uploads/1763713233154-__2025-11-21_16.20.25.webp"
+    },
+    {
+      "title": "车载设备",
+      "image": "/uploads/1763713290769-__2025-11-21_16.21.21.webp"
+    }
+  ],
   "companyStrength": {
     "strengths": [
       {
@@ -114,19 +344,19 @@
       {
         "icon": "Users",
         "title": "专业团队",
-        "value": "80+",
+        "value": "90+",
         "description": "经验丰富的技术团队，包括研发、生产、质检等专业人员"
       },
       {
         "icon": "Cog",
         "title": "年产能力",
-        "value": "1500万台",
+        "value": "2000万台",
         "description": "强大的生产能力，满足大批量订单需求"
       },
       {
         "icon": "Award",
         "title": "行业经验",
-        "value": "10+年",
+        "value": "12+年",
         "description": "深耕负离子发生器行业，积累丰富的技术和市场经验"
       }
     ],
@@ -198,5 +428,179 @@
         "description": "多规格绕线能力，满足不同需求"
       }
     ]
+  },
+  "about": {
+    "hero": {
+      "badge": "关于我们",
+      "title": "专业铸就",
+      "highlight": "品质未来",
+      "description": "苏州歌林蒂姆电子科技有限公司，成立于2013年，专注负离子发生器研发制造10年"
+    },
+    "companyIntro": {
+      "title": "关于歌林蒂姆",
+      "paragraphs": [
+        "苏州歌林蒂姆电子科技有限公司成立于2013年，是一家专业从事负离子发生器研发、生产和销售的高新技术企业。公司位于苏州市吴中区，拥有3200㎡现代化工厂和90多名专业员工。",
+        "经过12年的发展，公司已成为负离子发生器行业的领军企业，年产能达到2000万台，产品广泛应用于吹风机、卷发棒、空气净化器等家电产品中，为国内众多知名企业、家电品牌提供优质服务。",
+        "公司始终坚持\"质量第一、客户至上\"的经营理念，通过了ISO9001质量管理体系认证，产品获得UL、TUV、CE、CB、CQC等多项国际权威认证。"
+      ],
+      "stats": [
+        {
+          "value": "12+",
+          "label": "年行业经验"
+        },
+        {
+          "value": "2000万",
+          "label": "年产能（台）"
+        }
+      ],
+      "image": {
+        "src": "/images/company/building.webp",
+        "title": "现代化工厂",
+        "subtitle": "3200㎡标准厂房"
+      }
+    },
+    "history": {
+      "title": "发展历程",
+      "description": "十年砥砺前行，见证企业成长足迹",
+      "timeline": [
+        {
+          "year": "2013.10",
+          "title": "公司成立",
+          "description": "苏州歌林蒂姆电子科技有限公司正式成立于 苏州 娄葑"
+        },
+        {
+          "year": "2013.12",
+          "title": "技术进步",
+          "description": "产品全部ROHS、SVHC、无卤测试"
+        },
+        {
+          "year": "2015.05",
+          "title": "技术进步",
+          "description": "产品全部CQC、UL、TUV、GB、CE等产品安全认证"
+        },
+        {
+          "year": "2016.08",
+          "title": "生产技术进步",
+          "description": "公司全面导入主动生产设备"
+        },
+        {
+          "year": "2019.10",
+          "title": "公司搬迁",
+          "description": "厂址由娄葑搬迁至吴中区甪直"
+        },
+        {
+          "year": "2020.10",
+          "title": "持续创新",
+          "description": "导入全自动 高压包 智能生产设备，且每年增加"
+        },
+        {
+          "year": "2022.03",
+          "title": "智能生产",
+          "description": "导入全自动智能焊接设备，且每年增加"
+        },
+        {
+          "year": "2023.10",
+          "title": "",
+          "description": "公司成立10周年"
+        },
+        {
+          "year": "2024.12",
+          "title": "产能突破",
+          "description": "年生产力突破1200万只负离子发生器"
+        },
+        {
+          "year": "2025",
+          "title": "持续创新",
+          "description": "增加自动化生产设备，最大年产能达到2000万只"
+        }
+      ]
+    },
+    "workshop": {
+      "title": "厂房车间",
+      "description": "现代化的生产车间和先进的生产设备",
+      "gallery": [
+        {
+          "name": "12轴全自动绕线机",
+          "image": "/images/factory/winding-machine.webp"
+        },
+        {
+          "name": "12轴全自动绕线机-初级",
+          "image": "/images/factory/winding-machine-primary.webp"
+        },
+        {
+          "name": "高速插件机",
+          "image": "/images/factory/insertion-machine.webp"
+        },
+        {
+          "name": "全自动端子压着机",
+          "image": "/images/factory/terminal-crimping-machine.webp"
+        },
+        {
+          "name": "环氧点胶机",
+          "image": "/images/factory/epoxy-dispensing-machine.webp"
+        },
+        {
+          "name": "点胶房",
+          "image": "/images/factory/dispensing-room.webp"
+        },
+        {
+          "name": "流水线",
+          "image": "/images/factory/assembly-line.webp"
+        },
+        {
+          "name": "产品老化区域",
+          "image": "/images/factory/aging-area.webp"
+        }
+      ]
+    },
+    "equipment": {
+      "title": "先进设备",
+      "description": "配备先进的生产设备和检测仪器，确保产品质量",
+      "items": [
+        {
+          "name": "全自动SMT贴片生产线",
+          "description": "高精度自动化贴片设备，确保产品质量稳定",
+          "icon": "Cog"
+        },
+        {
+          "name": "自动化组装测试设备",
+          "description": "全自动组装和测试流水线，提高生产效率",
+          "icon": "Factory"
+        },
+        {
+          "name": "精密检测仪器设备",
+          "description": "先进的检测设备，确保每个产品都符合标准",
+          "icon": "CheckCircle"
+        },
+        {
+          "name": "环境可靠性测试设备",
+          "description": "模拟各种环境条件，验证产品可靠性",
+          "icon": "Award"
+        }
+      ]
+    },
+    "culture": {
+      "title": "企业文化",
+      "cards": [
+        {
+          "title": "企业使命",
+          "description": "为国内众多知名企业、家电品牌提供高品质的负离子发生器产品和服务",
+          "icon": "Target"
+        },
+        {
+          "title": "核心价值",
+          "description": "诚信、创新、品质、服务，以客户满意为最高目标",
+          "icon": "Users"
+        },
+        {
+          "title": "发展愿景",
+          "description": "成为国内领先的负离子发生器制造商和解决方案提供商",
+          "icon": "Award"
+        }
+      ],
+      "ctaText": "了解更多",
+      "buttonText": "了解更多",
+      "buttonLink": "/contact"
+    }
   }
 }
