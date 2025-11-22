@@ -69,6 +69,46 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+.content-root {
+  width: 100%;
+}
+
+.page-scale {
+  transform-origin: top center;
+  transform: scale(0.9);
+  width: calc(100% / 0.9);
+  min-height: calc(100vh / 0.9);
+  margin-left: auto;
+  margin-right: auto;
+  overflow-x: hidden;
+}
+
+.content-root .container {
+  max-width: 75vw;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 1200px) {
+  .content-root .container {
+    max-width: 90vw;
+  }
+}
+
+@media (max-width: 1024px) {
+  .page-scale {
+    transform: none;
+    width: 100%;
+    min-height: auto;
+    overflow-x: visible;
+  }
+  .content-root .container {
+    max-width: 100%;
+  }
 }
 
 /* 全局样式 */

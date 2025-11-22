@@ -156,7 +156,9 @@ export default function Hero({ data, stats }: HeroProps) {
                     src={currentImage.src}
                     alt={currentImage.alt || "产品展示"}
                     fill
-                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    sizes="(max-width: 1024px) 100vw, (max-width: 1440px) 45vw, 720px"
+                    priority={currentImageIndex === 0}
+                    loading={currentImageIndex === 0 ? "eager" : "lazy"}
                     className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
