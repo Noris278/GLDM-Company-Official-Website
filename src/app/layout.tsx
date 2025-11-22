@@ -43,9 +43,7 @@ export default function RootLayout({
         <link rel="canonical" href="https://www.gelintime.com" />
       </head>
       <body className="antialiased content-root">
-        <div className="page-scale">
-          {children}
-        </div>
+        {children}
       </body>
     </html>
   );

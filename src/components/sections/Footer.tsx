@@ -6,7 +6,7 @@ const footerLinks = {
   products: [
     { name: "交流负离子发生器", href: "/products/hair-dryer" },
     { name: "直流负离子发生器", href: "/products/air-conditioner" },
-    { name: "等离子负离子发生器", href: "/products/air-purifier" },
+    { name: "等离子发生器", href: "/products/air-purifier" },
     { name: "定制化解决方案", href: "/products/custom" }
   ],
   company: [

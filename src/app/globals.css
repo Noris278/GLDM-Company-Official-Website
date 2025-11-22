@@ -76,16 +76,6 @@ body {
   width: 100%;
 }
 
-.page-scale {
-  transform-origin: top center;
-  transform: scale(0.9);
-  width: calc(100% / 0.9);
-  min-height: calc(100vh / 0.9);
-  margin-left: auto;
-  margin-right: auto;
-  overflow-x: hidden;
-}
-
 .content-root .container {
   max-width: 75vw;
   width: 100%;
@@ -100,12 +90,6 @@ body {
 }
 
 @media (max-width: 1024px) {
-  .page-scale {
-    transform: none;
-    width: 100%;
-    min-height: auto;
-    overflow-x: visible;
-  }
   .content-root .container {
     max-width: 100%;
   }
